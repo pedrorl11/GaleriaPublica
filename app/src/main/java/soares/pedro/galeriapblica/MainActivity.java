@@ -71,7 +71,7 @@ public class MainActivity extends AppCompatActivity {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
 
         if(permissionsRejected.size() > 0) {
-
+            //olhar no app galeria e copiar a parte dele toda trocando o else
         }
         else {
             MainViewModel vm = new ViewModelProvider(this).get(MainViewModel.class);
