@@ -17,7 +17,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class GridViewFragment extends Fragment {
+
+    List<String> photos = new ArrayList<>();
+
+    GridAdapter gridAdapter;
 
     private MainViewModel mViewModel;
     private View view;
@@ -27,6 +34,7 @@ public class GridViewFragment extends Fragment {
     public static GridViewFragment newInstance() {
         return new GridViewFragment();
     }
+
 
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
@@ -40,7 +48,10 @@ public class GridViewFragment extends Fragment {
         });
         RecyclerView rvGallery = (RecyclerView)view.findViewById(R.id.rvGrid);
         rvGallery.setAdapter(gridAdapter);
-        rvGallery.setLayoutManager(new LinearLayoutManager(getContext()));
+        float w = getResources().getDimension(R.dimen.im_width);
+        int numberOfColumns = Util.calculateNoOfColumns(getContext(), w);
+        rvGallery.setLayoutManager(new GridLayoutManager(getContext(), numberOfColumns));
+
     }
 
     @Override

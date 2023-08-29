@@ -15,7 +15,7 @@ import java.text.SimpleDateFormat;
 
 public class ListAdapter extends PagingDataAdapter<ImageData, MyViewholder> {
 
-    public ListAdapter(@NonNull DiffUtil.ItemCallback<ImageData>diffcallback){
+    public ListAdapter(@NonNull DiffUtil.ItemCallback<ImageData> diffCallback){
         super(diffCallback);
     }
     public MyViewholder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
